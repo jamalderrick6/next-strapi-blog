@@ -1,21 +1,15 @@
 # Blog using Next.js and Strapi
 
-[**TUTORIAL LINK**](https://strapi.io/blog/build-a-blog-with-next-react-js-strapi)
-
-> **NOTE:**
-> 
-> *This project is based on the [Strapi Starter Next 13, Tailwind, Typescript, and Strapi]() made by [Trecia](https://github.com/TreciaKS), [Daniel](https://github.com/malgamves) and [Paul](https://github.com/PaulBratslavsky) from the Strapi Team.*
-
 ## Introduction
 
-This project is a code repo for the Strapi blog article [Build a blog with Next.js and Strapi](https://strapi.io/blog/build-a-blog-with-next-react-js-strapi).
+This project is an update from the repo for the Strapi blog article [Build a blog with Next.js and Strapi](https://strapi.io/blog/build-a-blog-with-next-react-js-strapi).
 
 ## Getting Started
 
 1. Clone the repo locally:
 
 ```bash
-git clone https://github.com/Marktawa/blog-strapi
+git clone https://github.com/jamalderrick6/next-strapi-blog
 ```
 
 2. Set up backend dependencies:

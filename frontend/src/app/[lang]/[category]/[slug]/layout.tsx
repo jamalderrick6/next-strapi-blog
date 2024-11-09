@@ -18,12 +18,12 @@ async function fetchSideMenuData(filter: string) {
       "/articles",
       filter
         ? {
-            filters: {
-              category: {
-                name: filter,
-              },
+          filters: {
+            category: {
+              name: filter,
             },
-          }
+          },
+        }
         : {},
       options
     );
@@ -66,10 +66,7 @@ export default async function LayoutRoute({
   children,
 }: {
   children: React.ReactNode;
-  params: {
-    slug: string;
-    category: string;
-  };
+  params: any;
 }) {
   const { category } = params;
   const { categories, articles } = (await fetchSideMenuData(category)) as Data;
