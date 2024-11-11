@@ -43,7 +43,7 @@ interface Category {
     name: string;
     slug: string;
     articles: {
-      data: Array<{}>;
+      data: Array<Article>;
     };
   };
 }

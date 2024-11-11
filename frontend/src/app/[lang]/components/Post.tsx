@@ -2,6 +2,16 @@ import { formatDate, getStrapiMedia } from '@/app/[lang]/utils/api-helpers';
 import { postRenderer } from '@/app/[lang]/utils/post-renderer';
 import Image from 'next/image';
 
+type TextStyle = "bold" | "italic" | "underline" | "strikeThrough";
+
+interface RichTextNode {
+    type: "text" | "image" | "link" | "heading" | "list" | "paragraph";
+    content?: string;
+    styles?: TextStyle[];
+    url?: string;
+    children?: RichTextNode[];
+}
+
 interface Article {
     id: number;
     attributes: {
@@ -29,7 +39,7 @@ interface Article {
                 };
             };
         };
-        blocks: any[];
+        blocks: RichTextNode[];
         publishedAt: string;
     };
 }
@@ -74,7 +84,7 @@ export default function Post({ data }: { data: Article }) {
             <div className="dark:text-gray-100">
                 <p>{description}</p>
 
-                {data.attributes.blocks.map((section: any, index: number) => postRenderer(section, index))}
+                {data.attributes.blocks.map((section: RichTextNode, index: number) => postRenderer(section, index))}
             </div>
         </article>
     );

@@ -14,6 +14,24 @@ const FALLBACK_SEO = {
   description: "Strapi Starter Next Blog",
 }
 
+interface Meta {
+  data: {
+    attributes: {
+      metadata: {
+        metaTitle: string;
+        metaDescription: string;
+      },
+      favicon: {
+        data: {
+          attributes: {
+            url: string;
+          }
+        }
+      }
+    }
+  }
+}
+
 
 async function getGlobal(): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -42,7 +60,7 @@ async function getGlobal(): Promise<any> {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const meta = await getGlobal();
+  const meta: Meta = await getGlobal();
 
   if (!meta.data) return FALLBACK_SEO;
 
@@ -63,7 +81,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: any;
 }) {
   const global = await getGlobal();
   // TODO: CREATE A CUSTOM ERROR PAGE

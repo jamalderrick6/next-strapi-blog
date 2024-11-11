@@ -7,7 +7,7 @@ interface Category {
     name: string;
     slug: string;
     articles: {
-      data: Array<{}>;
+      data: Array<Article>;
     };
   };
 }
@@ -49,6 +49,7 @@ export default function ArticleSelect({
             if (category.attributes.articles.data.length === 0) return null;
             return (
               <Link
+                key={category.id}
                 href={`/${category.attributes.slug}`}
                 className={selectedFilter(
                   category.attributes.slug,
@@ -69,14 +70,13 @@ export default function ArticleSelect({
           <ul className="ml-4 space-y-1 list-disc">
             {articles.map((article: Article) => {
               return (
-                <li>
+                <li key={article.id}>
                   <Link
                     rel="noopener noreferrer"
                     href={`/${params.category}/${article.attributes.slug}`}
-                    className={`${
-                      params.slug === article.attributes.slug &&
+                    className={`${params.slug === article.attributes.slug &&
                       "text-violet-400"
-                    }  hover:underline hover:text-violet-400 transition-colors duration-200`}
+                      }  hover:underline hover:text-violet-400 transition-colors duration-200`}
                   >
                     {article.attributes.title}
                   </Link>
